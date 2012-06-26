@@ -9,7 +9,7 @@ Author URI: http://coveredwebservices.com/
 */
 
 function cws_nice_search_redirect() {
-	if ( is_search() && strpos( $_SERVER['REQUEST_URI'], '/wp-admin/' ) === false && strpos( $_SERVER['REQUEST_URI'], '/search/' ) === false ) {
+	if ( is_search() && !is_admin() && strpos( $_SERVER['REQUEST_URI'], '/search/' ) === false ) {
 		wp_redirect( home_url( '/search/' . urlencode( get_query_var( 's' ) ) ) );
 		exit();
 	}
