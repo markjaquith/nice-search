@@ -4,7 +4,7 @@ Donate link: http://txfx.net/wordpress-plugins/donate
 Tags: redirect, canonical, search
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 0.3
+Stable tag: 0.4
 
 Redirects search URLs from ?s=FOO  to /search/foo and converts spaces to + symbols
 
