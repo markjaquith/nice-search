@@ -2,8 +2,8 @@
 Contributors: markjaquith
 Donate link: http://txfx.net/wordpress-plugins/donate
 Tags: redirect, canonical, search
-Requires at least: 3.0
-Tested up to: 3.1
+Requires at least: 3.3
+Tested up to: 3.5
 Stable tag: 0.3
 
 Redirects search URLs from ?s=FOO  to /search/foo and converts spaces to + symbols
@@ -22,9 +22,14 @@ This simple plugin (no configuration) redirects `?s=FOO` search URLs to the nice
 
 = Does this work with PATHINFO (index.php) permalinks? =
 
-Not right now.
+Yes.
 
 == Changelog ==
+
+= 0.4 =
+* Properly handle urlencoded characters (non-English languages: you want this!)
+* Include a hotfix for WordPress ticket [#13961](http://core.trac.wordpress.org/ticket/13961), which enables the above fix to work.
+* Use proper WP API functions (enables PATHINFO permalinks)
 
 = 0.3 =
 * First version in repository
