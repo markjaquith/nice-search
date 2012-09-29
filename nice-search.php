@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Nice Search
-Version: 0.4
+Version: 0.5
 Plugin URI: http://txfx.net/wordpress-plugins/nice-search/
 Description: Redirects ?s=query searches to /search/query, and converts %20 to +
 Author: Mark Jaquith
@@ -9,8 +9,13 @@ Author URI: http://coveredwebservices.com/
 */
 
 function cws_nice_search_redirect() {
-	if ( is_search() && !is_admin() && strpos( $_SERVER['REQUEST_URI'], '/search/' ) === false ) {
-		wp_redirect( home_url( '/search/' . urlencode( get_query_var( 's' ) ) ) );
+	global $wp_rewrite;
+	if ( !isset( $wp_rewrite ) || !is_object( $wp_rewrite ) || !$wp_rewrite->using_permalinks() )
+		return;
+
+	$search_base = $wp_rewrite->search_base;
+	if ( is_search() && !is_admin() && strpos( $_SERVER['REQUEST_URI'], "/{$search_base}/" ) === false ) {
+		wp_redirect( home_url( "/{$search_base}/" . urlencode( get_query_var( 's' ) ) ) );
 		exit();
 	}
 }

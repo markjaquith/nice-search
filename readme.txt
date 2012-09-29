@@ -10,7 +10,7 @@ Redirects search URLs from ?s=FOO  to /search/foo and converts spaces to + symbo
 
 == Description ==
 
-This simple plugin (no configuration) redirects `?s=FOO` search URLs to the nicer `/search/FOO` versions. Requires pretty `mod_rewrite` permalinks.
+This simple plugin (no configuration) redirects `?s=FOO` search URLs to the nicer `/search/FOO` versions. Requires pretty permalinks.
 
 == Installation ==
 
@@ -25,6 +25,9 @@ This simple plugin (no configuration) redirects `?s=FOO` search URLs to the nice
 Yes.
 
 == Changelog ==
+
+= 0.5 =
+* Respect custom `$wp_rewrite->search_base` values
 
 = 0.4 =
 * Properly handle urlencoded characters (non-English languages: you want this!)
